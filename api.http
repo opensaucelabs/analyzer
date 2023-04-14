@@ -16,7 +16,7 @@ Content-Type: 'application/json'
 ####################
 
 POST https://analyzer.opensauce.axlabs.com/analyze
-Content-Type: 'application/javascript'
+Content-Type: 'application/json'
 
 {
     "reqId": "b03e1f6f-ae6a-48f2-89a3-91f8cb45a037",
