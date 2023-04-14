@@ -315,17 +315,20 @@ func cloneOrUpdate(gitUrl string) (*git.Repository, error) {
 	if err != nil {
 		repo, err = git.OpenRepository(p)
 		if err != nil {
+			log.Debugf("Cannot open repository: %v", err.Error())
 			return nil, err
 		}
 
 		remote, err := repo.Remotes.Lookup("origin")
 		if err != nil {
+			log.Debugf("Cannot lookup remote: %v", err.Error())
 			return nil, err
 		}
 		defer remote.Free()
 
 		err = remote.Fetch([]string{}, nil, "")
 		if err != nil {
+			log.Debugf("Cannot fetch remote: %v", err.Error())
 			return nil, err
 		}
 		rh, err := remote.Ls()
