@@ -9,7 +9,7 @@ COPY *.go ./
 RUN go build
 
 FROM alpine:3.17
-RUN addgroup -S nonroot && adduser -S nonroot -G nonroot
+RUN addgroup -S nonroot && adduser -S nonroot -G nonroot && mkdir -p /tmp/repos
 WORKDIR /app
 COPY banner.txt .
 COPY --from=builder /app/analyzer .
