@@ -313,6 +313,7 @@ func cloneOrUpdate(gitUrl string) (*git.Repository, error) {
 
 	//directory already existing,
 	if err != nil {
+		log.Debugf("Clone repo error: %v", err.Error())
 		repo, err = git.OpenRepository(p)
 		if err != nil {
 			log.Debugf("Cannot open repository: %v", err.Error())
