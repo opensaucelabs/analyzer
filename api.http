@@ -1,13 +1,26 @@
 ####################
-# /webhook
+# /analyzer
 ####################
 POST http://localhost:9083/analyze
-Content-Type: application/javascript'
+Content-Type: 'application/json'
 
 {
- "repository_url": "https://github.com/neow3j/neow3j",
- "since": "2022-01-01T00:00:00+00:00",
- "until": "2022-04-16T00:00:00+00:00",
- "platform_information": false,
- "branch": "master-3.x"
+    "reqId": "b03e1f6f-ae6a-48f2-89a3-91f8cb45a037",
+    "dateFrom": "2023-01-01T12:00:00Z",
+    "dateTo": "2023-04-15T12:00:00Z",
+    "gitUrl": "https://github.com/neow3j/neow3j"
+}
+
+####################
+# /analyzer
+####################
+
+POST https://analyzer.opensauce.axlabs.com/analyze
+Content-Type: 'application/javascript'
+
+{
+    "reqId": "b03e1f6f-ae6a-48f2-89a3-91f8cb45a037",
+    "dateFrom": "2023-01-01T12:00:00Z",
+    "dateTo": "2023-04-15T12:00:00Z",
+    "gitUrl": "https://github.com/neow3j/neow3j"
 }

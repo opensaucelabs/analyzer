@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/google/uuid"
 	log "github.com/sirupsen/logrus"
 	"net/http"
 	"os"
@@ -12,18 +11,18 @@ import (
 )
 
 type WebhookRequest struct {
-	RequestId uuid.UUID `json:"reqId"`
+	RequestId string    `json:"reqId"`
 	DateFrom  time.Time `json:"dateFrom"`
 	DateTo    time.Time `json:"dateTo"`
 	GitUrl    string    `json:"gitUrl"`
 }
 
 type WebhookResponse struct {
-	RequestId uuid.UUID `json:"request_id"`
+	RequestId string `json:"reqId"`
 }
 
 type WebhookCallback struct {
-	RequestId uuid.UUID       `json:"requestId"`
+	RequestId string          `json:"reqId"`
 	Error     string          `json:"error,omitempty"`
 	Result    []FlatFeeWeight `json:"result"`
 }

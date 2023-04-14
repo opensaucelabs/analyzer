@@ -54,6 +54,12 @@ func NewOpts() *Opts {
 	}
 	flag.Parse()
 
+	// create dir
+	err = os.MkdirAll(o.GitBasePath, os.ModePerm)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	//set defaults, be explicit
 	if o.Env == "local" || o.Env == "dev" {
 		debug = true
